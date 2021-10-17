@@ -6,5 +6,8 @@ class Plant:
   def plant_info(self):
     print("\nThis plant is a  " + self.name)
     print("the life span is " + str(self.age) + "\n")
+  
+    
+  
 
 
