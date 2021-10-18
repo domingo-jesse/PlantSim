@@ -1,5 +1,6 @@
 from image_opener import image_open
-from classes import Plant
+from make_plant import make_plant
+
 
 def look(): 
   print("What do you wanna look at?")
@@ -12,20 +13,19 @@ def look():
 
     x = input()
     if x == '1': 
-      image_open('./images/rose-peach.jpg')
-      p1 = Plant("Rose", 35)
-      p1.plant_info()
-
+      Plant1 = make_plant()
+      Plant1.plant_info()
+      image_open(Plant1.image_path)
 
     elif x == '2': 
-      image_open('./images/willow-tree.jpg')
-      p2 = Plant("Willow", 30)
-      p2.plant_info()
+      Plant2 = make_plant()
+      Plant2.plant_info()
+      image_open(Plant2.image_path)
 
     elif x == '3': 
-      image_open('./images/Venus-flytrap.jpg')
-      p3 = Plant("Venus FlyTrap", 20)
-      p3.plant_info()
+      Plant3 = make_plant()
+      Plant3.plant_info()
+      image_open(Plant3.image_path)
 
     elif x == '4': 
       print("\nYou go to the main menu\n")
