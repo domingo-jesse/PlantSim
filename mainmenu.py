@@ -1,6 +1,6 @@
 # mainmenu 
 from add_plants import add_plants
-from pick_weeds import pick_weeds
+from water import water
 from look import look 
 from plant_crops import plant_crops
 
@@ -23,7 +23,7 @@ def main_menu():
       add_plants()
   elif x == '3': 
       #function to water plant
-      pick_weeds()
+      water()
   elif x == '4': 
     # function to plant crops 
     plant_crops()

@@ -1,11 +1,10 @@
-from image_opener import image_open
 from plant_factory import plant_list
 
 
-def look(): 
+def water(): 
   
   if plant_list == {}:
-    print("\nYou have no plants to look at Please add plants\n")
+    print("\nYou have no plants to water at Please add plants\n")
     pass
   else: 
     y = False
@@ -13,13 +12,13 @@ def look():
       for i in plant_list: 
         print(str(i) + ") Look at " + plant_list[i].name)
    
-      x = input("Choose a plant to look at: ")
+      x = input("choose a Plant to Water: ")
       try:
         key = int(x)
         if key in plant_list.keys():
-          plant_list[key].plant_info()
-          image_open(plant_list[key].image_path)
-          x= input("Do you wanna look at another plant? (type yes or no) ")
+          plant_list[key].watered = plant_list[key].watered + 1 
+          print(plant_list[key].name + " has been watered! (Total: " +  str(plant_list[key].watered) + ")" ) 
+          x= input("Do you wanna  water another plant? (type yes or no) ")
           if x == 'yes' : 
             pass
           elif x == 'no':
