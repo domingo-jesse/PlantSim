@@ -1,14 +1,15 @@
 # mainmenu 
-from water import water
+from add_plants import add_plants
 from pick_weeds import pick_weeds
 from look import look 
 from plant_crops import plant_crops
 
+
 def main_menu(): 
  y = False
  while y == False: 
-  print("1) Look at the Plants")
-  print("2) Water the Plants")
+  print("1) Look Plants info")
+  print("2) Add Plants")
   print("3) Pick the Weeds")
   print("4) Plant new crops")
   print("5) Leave the Garden\n" )
@@ -19,7 +20,7 @@ def main_menu():
       look() 
   elif x == '2': 
       #function to water plant
-      water()
+      add_plants()
   elif x == '3': 
       #function to water plant
       pick_weeds()

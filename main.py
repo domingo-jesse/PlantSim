@@ -6,7 +6,7 @@ from mainmenu import main_menu
 
 def main(): 
   print("Hello Wecome to Plant Simulator!! \nThis is where you can plant grow and harvest all of your plants")
-
+  
   main_menu() 
   
 
