@@ -11,12 +11,14 @@
   
 
  # return 0
-  
+from plant_factory import plant_list 
 from look import look 
 from add_plants import add_plants
 from water import water
 from pick_weeds import pick_weeds
 import tkinter as tk
+
+from tkinter import *
 
 def fahrenheit_to_celsius():
     """Convert the value for Fahrenheit to Celsius and insert the
@@ -25,6 +27,8 @@ def fahrenheit_to_celsius():
     fahrenheit = ent_temperature.get()
     celsius = (5/9) * (float(fahrenheit) - 32)
     lbl_result["text"] = f"{round(celsius, 2)} \N{DEGREE CELSIUS}"
+
+
 
 # Set-up the window
 window = tk.Tk()
@@ -36,6 +40,15 @@ window.resizable(width=True, height=True)
 frm_entry = tk.Frame(master=window)
 ent_temperature = tk.Entry(master=frm_entry, width=10)
 lbl_temp = tk.Label(master=frm_entry, text="Plant Name")
+
+
+  
+
+def show():
+    Restore()
+    label.config( text = clicked.get() )
+  
+
 
 # Layout the temperature Entry and Label in frm_entry
 # using the .grid() geometry manager
@@ -52,23 +65,46 @@ def hide_me(event):
   a.grid_remove()
   btn_change.grid_remove()
   
-def see_me(event):
+def Restore(): 
   frm_entry.grid(row=0, column=0, padx=10)
   btn_add.grid(row=0, column=1, pady=10)
-  btn_pick.grid(row=1, column=1, pady=10)
-  btn_look.grid(row=2, column=1, pady=10)
-  btn_water.grid(row=3, column=1, pady=10)
-  a.grid(row=4, column=1, padx=10)
-  btn_change.grid(row=5, column=1, padx=10)
-  btn.grid(row=7, column=1, padx=10)
-  btn2.grid(row=6, column=1, padx=10)
+  btn_pick.grid(row=0, column=2, pady=10)
+  btn_look.grid(row=1, column=1, pady=10)
+  btn_water.grid(row=1, column=2, pady=10)
+  a.grid(row=1, column=0, padx=10)
+  btn_change.grid(row=2, column=0, padx=10)
+  btn.grid(row=2, column=1, padx=10)
+  btn2.grid(row=2, column=2, padx=10)
+  # Dropdown menu options
+ 
+
+plants = list(plant_list.keys())
+options = [
+  plants
+]
+  
+# datatype of menu text
+clicked = StringVar()
+  
+# initial menu text
+clicked.set("Choose a Plant")
+  
+# Create Dropdown menu
+drop = OptionMenu( window , clicked , *options )
+drop.grid()
+  
+# Create button, it will change label text
+button = Button( window , text = "click Me" , command = show ).grid()
+  
+# Create Label
+label = Label( window , text = " " )
+label.grid()
 
     
 
 btn=tk.Button(master=window, text="Remove")
 btn.bind('<Button-1>', hide_me)
-btn2=tk.Button(master= window, text="Click too",)
-btn2.bind('<Button-1>', see_me)
+btn2=tk.Button(master= window, text="Click too", command = Restore)
 
 
 # Create the conversion Button and result display Label
@@ -97,16 +133,7 @@ btn_look = tk.Button(
 )
 
 def changetext():
-  a.config(text="changed text!")
-  frm_entry.grid(row=0, column=0, padx=10)
-  btn_add.grid(row=0, column=1, pady=10)
-  btn_pick.grid(row=1, column=1, pady=10)
-  btn_look.grid(row=2, column=1, pady=10)
-  btn_water.grid(row=3, column=1, pady=10)
-  a.grid(row=4, column=1, padx=10)
-  btn_change.grid(row=5, column=1, padx=10)
-  btn.grid(row=7, column=1, padx=10)
-  btn2.grid(row=6, column=1, padx=10)
+  a.config(text="Current Plant has been Watered")
 
     
 a = tk.Label(master=window, text="hello world")
@@ -121,16 +148,16 @@ btn_change = tk.Button(
 
 lbl_result = tk.Label(master=window, text="Hello")
 
-# Set-up the layout using the .grid() geometry manager
-frm_entry.grid(row=0, column=0, padx=10)
-btn_add.grid(row=0, column=1, pady=10)
-btn_pick.grid(row=1, column=1, pady=10)
-btn_look.grid(row=2, column=1, pady=10)
-btn_water.grid(row=3, column=1, pady=10)
-a.grid(row=4, column=1, padx=10)
-btn_change.grid(row=5, column=1, padx=10)
-btn.grid(row=7, column=1, padx=10)
-btn2.grid(row=6, column=1, padx=10)
+def Restore(): 
+  btn_add.grid(row=0, column=1, pady=10)
+  btn_pick.grid(row=0, column=2, pady=10)
+  btn_look.grid(row=1, column=1, pady=10)
+  btn_water.grid(row=1, column=2, pady=10)
+  a.grid(row=5, column=0, padx=10)
+  btn_change.grid(row=6, column=0, padx=10)
+  btn.grid(row=2, column=1, padx=10)
+  btn2.grid(row=2, column=2, padx=10)
+Restore() 
 
 # Run the application
 window.mainloop()
