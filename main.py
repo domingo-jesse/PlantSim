@@ -43,12 +43,32 @@ ent_temperature.grid(row=0, column=0, sticky="e")
 lbl_temp.grid(row=0, column=1, sticky="w")
 
 def hide_me(event):
-    event.widget.grid_remove()
+  lbl_temp.grid_remove()
+  frm_entry.grid_remove()
+  btn_add.grid_remove()
+  btn_pick.grid_remove()
+  btn_look.grid_remove()
+  btn_water.grid_remove()
+  a.grid_remove()
+  btn_change.grid_remove()
+  
+def see_me(event):
+  frm_entry.grid(row=0, column=0, padx=10)
+  btn_add.grid(row=0, column=1, pady=10)
+  btn_pick.grid(row=1, column=1, pady=10)
+  btn_look.grid(row=2, column=1, pady=10)
+  btn_water.grid(row=3, column=1, pady=10)
+  a.grid(row=4, column=1, padx=10)
+  btn_change.grid(row=5, column=1, padx=10)
+  btn.grid(row=7, column=1, padx=10)
+  btn2.grid(row=6, column=1, padx=10)
 
-btn=tk.Button(master=window, text="Click")
+    
+
+btn=tk.Button(master=window, text="Remove")
 btn.bind('<Button-1>', hide_me)
-btn2=tk.Button(master= window, text="Click too")
-btn2.bind('<Button-1>', hide_me)
+btn2=tk.Button(master= window, text="Click too",)
+btn2.bind('<Button-1>', see_me)
 
 
 # Create the conversion Button and result display Label
@@ -77,7 +97,17 @@ btn_look = tk.Button(
 )
 
 def changetext():
-	a.config(text="changed text!")
+  a.config(text="changed text!")
+  frm_entry.grid(row=0, column=0, padx=10)
+  btn_add.grid(row=0, column=1, pady=10)
+  btn_pick.grid(row=1, column=1, pady=10)
+  btn_look.grid(row=2, column=1, pady=10)
+  btn_water.grid(row=3, column=1, pady=10)
+  a.grid(row=4, column=1, padx=10)
+  btn_change.grid(row=5, column=1, padx=10)
+  btn.grid(row=7, column=1, padx=10)
+  btn2.grid(row=6, column=1, padx=10)
+
     
 a = tk.Label(master=window, text="hello world")
 
